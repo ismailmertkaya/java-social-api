@@ -19,7 +19,7 @@ public class SocialController {
         this.service = service;
     }
 
-    // ── Users ─────────────────────────────────────────────────────
+   
 
     @GetMapping("/users")
     public ResponseEntity<List<User>> getUsers() {
@@ -49,7 +49,7 @@ public class SocialController {
         return ResponseEntity.ok(Map.of("message", "Unfollowed"));
     }
 
-    // ── Posts ─────────────────────────────────────────────────────
+  
 
     @GetMapping("/posts")
     public ResponseEntity<List<Post>> getAllPosts(
