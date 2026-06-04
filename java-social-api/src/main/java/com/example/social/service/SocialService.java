@@ -17,11 +17,11 @@ public class SocialService {
     private final AtomicLong postIdCounter = new AtomicLong(1);
 
     public SocialService() {
-        // Seed users
+      
         User u1 = createUser("hasan_dev", "hasan@dev.com", "Java & Python developer 🚀");
         User u2 = createUser("ayse_code", "ayse@dev.com", "Backend engineer | Coffee lover ☕");
         User u3 = createUser("tech_mehmet", "mehmet@tech.com", "CS student | Open source contributor");
-        // Seed posts
+       
         createPost(u1.getId(), "Just finished my Spring Boot project! #java #springboot 🎉");
         createPost(u2.getId(), "Python FastAPI is amazing for quick REST APIs #python #fastapi");
         createPost(u1.getId(), "Learning about data structures today #algorithms #cs");
@@ -29,7 +29,7 @@ public class SocialService {
         follow(u3.getId(), u1.getId());
     }
 
-    // ── Users ─────────────────────────────────────────────────────
+  
 
     public User createUser(String username, String email, String bio) {
         if (users.values().stream().anyMatch(u -> u.getUsername().equals(username)))
@@ -61,7 +61,7 @@ public class SocialService {
         target.getFollowers().remove(followerId);
     }
 
-    // ── Posts ─────────────────────────────────────────────────────
+   
 
     public Post createPost(Long authorId, String content) {
         User author = getUser(authorId);
@@ -83,14 +83,14 @@ public class SocialService {
     }
 
     public List<Post> getPostsByUser(Long userId) {
-        getUser(userId); // validate user exists
+        getUser(userId); 
         return posts.values().stream()
                 .filter(p -> !p.isDeleted() && p.getAuthorId().equals(userId))
                 .sorted(Comparator.comparing(Post::getCreatedAt).reversed())
                 .collect(Collectors.toList());
     }
 
-    /** Feed: posts from users that userId follows */
+   
     public List<Post> getFeed(Long userId) {
         User user = getUser(userId);
         return posts.values().stream()
