@@ -4,9 +4,7 @@ import jakarta.validation.constraints.*;
 import java.time.LocalDateTime;
 import java.util.*;
 
-/**
- * Post — content shared by a user.
- */
+
 public class Post {
 
     private Long id;
@@ -34,7 +32,7 @@ public class Post {
     }
 
     public boolean like(Long userId) {
-        return likedByUserIds.add(userId); // returns false if already liked
+        return likedByUserIds.add(userId); 
     }
 
     public boolean unlike(Long userId) {
@@ -45,7 +43,7 @@ public class Post {
 
     public void addComment(Comment comment) { comments.add(comment); }
 
-    /** Extract hashtags from post content e.g. "#java #spring" */
+  
     private List<String> extractHashtags(String text) {
         List<String> tags = new ArrayList<>();
         if (text == null) return tags;
@@ -57,7 +55,7 @@ public class Post {
         return tags;
     }
 
-    // Getters & Setters
+  
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public Long getAuthorId() { return authorId; }
