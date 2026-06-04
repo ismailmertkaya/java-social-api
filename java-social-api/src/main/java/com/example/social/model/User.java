@@ -4,9 +4,7 @@ import jakarta.validation.constraints.*;
 import java.time.LocalDateTime;
 import java.util.*;
 
-/**
- * User — a registered member of the platform.
- */
+
 public class User {
 
     private Long id;
@@ -24,9 +22,9 @@ public class User {
     private boolean active = true;
     private LocalDateTime joinedAt = LocalDateTime.now();
 
-    // IDs of users this user follows
+
     private Set<Long> following = new HashSet<>();
-    // IDs of users who follow this user
+    
     private Set<Long> followers = new HashSet<>();
 
     public User() {}
@@ -41,7 +39,7 @@ public class User {
     public int getFollowingCount() { return following.size(); }
     public int getFollowersCount() { return followers.size(); }
 
-    // Getters & Setters
+    
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getUsername() { return username; }
